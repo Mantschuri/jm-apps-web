@@ -45,4 +45,4 @@ All items below are manual and intentionally remain incomplete until real releas
 - [ ] Preview the site locally at common phone, tablet, and desktop widths.
 - [ ] Test keyboard navigation, the mobile menu, and the Escape key.
 - [ ] Verify all production pages and store/support links after deployment.
-- [ ] Add a social preview image and `og:image` metadata only after an approved asset exists.
+- [x] Add the approved social preview image and metadata to all public pages.

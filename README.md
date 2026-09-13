@@ -50,7 +50,7 @@ Die Betreiber- und Kontaktangaben sind mit den freigegebenen Daten befüllt. Fol
 1. Impressum, Website-Datenschutz und die release-spezifischen Datenschutzhinweise müssen final rechtlich geprüft werden.
 2. In `knowi/index.html` und `talumi/index.html`: echte App-Store- und Google-Play-Links anstelle der inaktiven Store-Elemente einsetzen.
 3. In `app-ads.txt`: Nach Einrichtung des AdMob-Kontos und der Apps die aktuelle leere Datei exakt mit der von Google bereitgestellten Publisher-Zeile befüllen. Sie muss später unter `https://jm-apps.de/app-ads.txt` erreichbar sein.
-4. Ein Social-Preview-Bild wird bewusst noch nicht veröffentlicht. Ein später freigegebenes Bild kann als `assets/images/og-jm-apps.png` ergänzt und dann per `og:image` referenziert werden.
+4. Das freigegebene Social-Preview-Bild liegt unter `assets/images/og-jm-apps.png` und wird von den öffentlichen Seiten per Open-Graph- und Twitter-Card-Metadaten referenziert.
 
 ## GitHub Pages und Domain
 
