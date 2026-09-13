@@ -9,7 +9,7 @@ Die Architektur besteht ausschließlich aus semantischem HTML, gemeinsamem CSS u
 - `index.html` – Studio-Homepage und App-Übersicht
 - `knowi/` und `talumi/` – Produktseiten
 - `support/` – zentraler Support-Einstieg
-- `privacy/` und `imprint/` – rechtliche Vorabseiten
+- `privacy/` und `imprint/` – Datenschutz- und Anbieterinformationen
 - `assets/css/styles.css` – gemeinsames Design
 - `assets/js/main.js` – mobile Navigation und dynamisches Jahr
 - `assets/images/` – freigegebene Produktmarken und JM Apps Favicon
@@ -39,29 +39,29 @@ python3 scripts/check_site.py
 
 Sie prüft erforderliche Dateien, lokale Links und Assets, zentrale Metadaten sowie versehentlich veröffentlichte lokale Pfade. Zusätzlich sollte die Seite im Browser bei Smartphone-, Tablet- und Desktopbreiten sowie mit Tastatur getestet werden. Die vollständige manuelle Launch-Liste steht in `docs/release-checklist.md`.
 
+## Öffentlicher Kontakt
+
+Der derzeit freigegebene allgemeine Kontakt sowie Support-, Datenschutz- und Impressumskontakt ist `julian.mentges@gmail.com`. Er wird zentral auf der Supportseite sowie auf den rechtlichen Seiten verwendet. Später kann er durch eine dedizierte Domain-Adresse wie `support@jm-apps.de` ersetzt werden; dann müssen `support/index.html`, `privacy/index.html`, `imprint/index.html` und diese Dokumentation gemeinsam aktualisiert werden.
+
 ## Vor dem öffentlichen Start
 
-Folgende Angaben sind bewusst nicht erfunden und müssen ergänzt beziehungsweise rechtlich geprüft werden:
+Die Betreiber- und Kontaktangaben sind mit den freigegebenen Daten befüllt. Folgende externe Angaben und Prüfungen bleiben offen:
 
-1. In `imprint/index.html`: Betreibername, ladungsfähige Anschrift, Kontakt und alle tatsächlich erforderlichen Anbieterangaben.
-2. In `privacy/index.html`: verantwortliche Stelle, Kontakt und release-spezifische Datenschutzangaben für Website, KNOWI und TALUMI.
-3. In `support/index.html`: echter Supportkontakt. Die zentrale sichtbare Platzhaltermeldung kann anschließend durch einen `mailto:`-Link ersetzt werden.
-4. In `knowi/index.html` und `talumi/index.html`: echte App-Store- und Google-Play-Links anstelle der inaktiven „Bald verfügbar“-Elemente.
-5. In `app-ads.txt`: Nach Einrichtung des AdMob-Kontos und der Apps die aktuelle leere Datei exakt mit der von Google bereitgestellten Publisher-Zeile befüllen. Sie muss später unter `https://jm-apps.de/app-ads.txt` erreichbar sein.
-6. Ein Social-Preview-Bild wird bewusst noch nicht veröffentlicht. Ein später freigegebenes Bild kann als `assets/images/og-jm-apps.png` ergänzt und dann per `og:image` referenziert werden.
+1. Impressum, Website-Datenschutz und die release-spezifischen Datenschutzhinweise müssen final rechtlich geprüft werden.
+2. In `knowi/index.html` und `talumi/index.html`: echte App-Store- und Google-Play-Links anstelle der inaktiven Store-Elemente einsetzen.
+3. In `app-ads.txt`: Nach Einrichtung des AdMob-Kontos und der Apps die aktuelle leere Datei exakt mit der von Google bereitgestellten Publisher-Zeile befüllen. Sie muss später unter `https://jm-apps.de/app-ads.txt` erreichbar sein.
+4. Ein Social-Preview-Bild wird bewusst noch nicht veröffentlicht. Ein später freigegebenes Bild kann als `assets/images/og-jm-apps.png` ergänzt und dann per `og:image` referenziert werden.
 
 ## GitHub Pages und Domain
 
-Deployment ist direkt aus `main` und dem Ordner `/ (root)` vorgesehen. Nach dem Push:
+Die Website wird bereits per GitHub Pages direkt aus `main` und dem Ordner `/ (root)` bereitgestellt. `jm-apps.de` ist bestellt, aber Domain-Aktivierung, DNS und Custom-Domain-Konfiguration sind noch nicht abgeschlossen. Für die Umstellung:
 
-1. Im GitHub-Repository **Settings → Pages** öffnen.
-2. Unter **Build and deployment** „Deploy from a branch“ wählen.
-3. Branch `main` und Ordner `/ (root)` wählen und speichern.
-4. Den von GitHub erzeugten Pages-Link abwarten und alle Seiten prüfen.
-5. Unter **Custom domain** `jm-apps.de` eintragen. GitHub erzeugt dabei bei Bedarf die Domain-Konfiguration.
-6. Beim DNS-Anbieter die von GitHub aktuell dokumentierten DNS-Einträge setzen; keine Werte aus diesem Repository übernehmen oder raten.
-7. DNS-Prüfung und gegebenenfalls Domain-Verifizierung in GitHub abschließen.
-8. Nach erfolgreicher DNS-Auflösung **Enforce HTTPS** aktivieren.
+1. Die Domain-Aktivierung beim Anbieter abschließen.
+2. Im GitHub-Repository **Settings → Pages** öffnen und den bestehenden Branch-Deploy prüfen.
+3. Unter **Custom domain** `jm-apps.de` eintragen. GitHub erzeugt dabei bei Bedarf die Domain-Konfiguration.
+4. Beim DNS-Anbieter die von GitHub aktuell dokumentierten DNS-Einträge setzen; keine Werte aus diesem Repository übernehmen oder raten.
+5. DNS-Prüfung und gegebenenfalls Domain-Verifizierung in GitHub abschließen.
+6. Nach erfolgreicher DNS-Auflösung **Enforce HTTPS** aktivieren.
 
 Eine `CNAME`-Datei wird absichtlich erst bei der Einrichtung der Custom Domain angelegt.
 
@@ -74,4 +74,4 @@ Eine `CNAME`-Datei wird absichtlich erst bei der Einrichtung der Custom Domain a
 5. Navigation oder Footer nur erweitern, wenn die Informationsarchitektur dies wirklich benötigt.
 6. Die neue öffentliche URL zu `sitemap.xml` hinzufügen und `python3 scripts/check_site.py` ausführen.
 
-Auf strukturiertes JSON-LD wird vorerst verzichtet: Ohne finale Betreiberangaben und Store-URLs wäre der Nutzen begrenzt und eine vollständige Darstellung nicht zuverlässig. Präzise Metadaten haben Vorrang vor SEO-Dekoration.
+Auf strukturiertes JSON-LD wird vorerst verzichtet: Die Apps haben noch keine Store-URLs und JM Apps ist ein Projekt-/Studioname, keine separate juristische Person. Präzise Metadaten haben Vorrang vor SEO-Dekoration.

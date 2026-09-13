@@ -4,25 +4,26 @@ All items below are manual and intentionally remain incomplete until real releas
 
 ## Domain
 
-- [ ] Confirm ownership of `jm-apps.de`.
-- [ ] Enable GitHub Pages from `main` and `/ (root)`.
+- [x] Order `jm-apps.de`.
+- [x] Enable GitHub Pages from `main` and `/ (root)`.
+- [ ] Complete netcup domain activation.
 - [ ] Add `jm-apps.de` as the GitHub Pages custom domain.
 - [ ] Configure the exact DNS records currently specified by GitHub.
 - [ ] Verify the domain and enable HTTPS.
 
 ## Legal
 
-- [ ] Add the legal operator name.
-- [ ] Add the complete postal address.
-- [ ] Add the legal contact email address.
-- [ ] Complete and review the imprint.
+- [x] Add the verified operator name.
+- [x] Add the verified postal address.
+- [x] Add the verified legal and privacy contact email address.
+- [ ] Complete the final legal review of the imprint.
 - [ ] Complete and review the website privacy information.
 - [ ] Complete and review the release-specific privacy information for both apps.
 
 ## Support
 
-- [ ] Add the real support email to `support/index.html`.
-- [ ] Test the resulting `mailto:` link.
+- [x] Add the approved support email to `support/index.html`.
+- [x] Validate the resulting `mailto:` links syntactically.
 
 ## Stores
 
