@@ -8,8 +8,9 @@ from urllib.parse import urlsplit
 ROOT = Path(__file__).resolve().parent.parent
 REQUIRED = (
     "index.html", "knowi/index.html", "talumi/index.html", "support/index.html",
-    "privacy/index.html", "imprint/index.html", "404.html", "app-ads.txt",
-    "robots.txt", "sitemap.xml",
+    "privacy/index.html", "imprint/index.html", "terms/index.html",
+    "account-deletion/index.html", "404.html", "app-ads.txt", "robots.txt",
+    "sitemap.xml",
 )
 REQUIRED_META = ("description",)
 FORBIDDEN = (

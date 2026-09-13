@@ -10,6 +10,8 @@ Die Architektur besteht ausschließlich aus semantischem HTML, gemeinsamem CSS u
 - `knowi/` und `talumi/` – Produktseiten
 - `support/` – zentraler Support-Einstieg
 - `privacy/` und `imprint/` – Datenschutz- und Anbieterinformationen
+- `terms/` – Nutzungsbedingungen
+- `account-deletion/` – öffentlicher Account-Löschweg für App-Store-Angaben
 - `assets/css/styles.css` – gemeinsames Design
 - `assets/js/main.js` – mobile Navigation und dynamisches Jahr
 - `assets/images/` – freigegebene Produktmarken und JM Apps Favicon
@@ -47,23 +49,25 @@ Der derzeit freigegebene allgemeine Kontakt sowie Support-, Datenschutz- und Imp
 
 Die Betreiber- und Kontaktangaben sind mit den freigegebenen Daten befüllt. Folgende externe Angaben und Prüfungen bleiben offen:
 
-1. Impressum, Website-Datenschutz und die release-spezifischen Datenschutzhinweise müssen final rechtlich geprüft werden.
+1. Impressum, Website-Datenschutz, Nutzungsbedingungen und die release-spezifischen Datenschutzhinweise müssen final professionell rechtlich geprüft werden.
 2. In `knowi/index.html` und `talumi/index.html`: echte App-Store- und Google-Play-Links anstelle der inaktiven Store-Elemente einsetzen.
 3. In `app-ads.txt`: Nach Einrichtung des AdMob-Kontos und der Apps die aktuelle leere Datei exakt mit der von Google bereitgestellten Publisher-Zeile befüllen. Sie muss später unter `https://jm-apps.de/app-ads.txt` erreichbar sein.
 4. Das freigegebene Social-Preview-Bild liegt unter `assets/images/og-jm-apps.png` und wird von den öffentlichen Seiten per Open-Graph- und Twitter-Card-Metadaten referenziert.
 
+Die interne Entscheidungs- und Quellenübersicht steht in `docs/compliance/legal-baseline.md`. Sie dokumentiert auch die bewusst nicht eingefügten ODR- und VSBG-Texte, den Website-Speicheraudit sowie offene Store-, Kids- und AdMob-Prüfungen. Diese technische Baseline ersetzt keine Rechtsberatung.
+
 ## GitHub Pages und Domain
 
-Die Website wird bereits per GitHub Pages direkt aus `main` und dem Ordner `/ (root)` bereitgestellt. `jm-apps.de` ist bestellt, aber Domain-Aktivierung, DNS und Custom-Domain-Konfiguration sind noch nicht abgeschlossen. Für die Umstellung:
+Die Website wird bereits per GitHub Pages direkt aus `main` und dem Ordner `/ (root)` bereitgestellt. Die eingecheckte `CNAME`-Datei setzt `jm-apps.de` als Custom Domain; Domain-Aktivierung, DNS-Prüfung und HTTPS sind noch nicht vollständig abgeschlossen. Für die Umstellung:
 
 1. Die Domain-Aktivierung beim Anbieter abschließen.
 2. Im GitHub-Repository **Settings → Pages** öffnen und den bestehenden Branch-Deploy prüfen.
-3. Unter **Custom domain** `jm-apps.de` eintragen. GitHub erzeugt dabei bei Bedarf die Domain-Konfiguration.
+3. Unter **Custom domain** prüfen, dass `jm-apps.de` aus der `CNAME`-Konfiguration angezeigt wird.
 4. Beim DNS-Anbieter die von GitHub aktuell dokumentierten DNS-Einträge setzen; keine Werte aus diesem Repository übernehmen oder raten.
 5. DNS-Prüfung und gegebenenfalls Domain-Verifizierung in GitHub abschließen.
 6. Nach erfolgreicher DNS-Auflösung **Enforce HTTPS** aktivieren.
 
-Eine `CNAME`-Datei wird absichtlich erst bei der Einrichtung der Custom Domain angelegt.
+Die vorhandene `CNAME`-Datei muss bei künftigen Deployments erhalten bleiben.
 
 ## Adding a new app
 
