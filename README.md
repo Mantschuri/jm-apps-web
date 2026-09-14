@@ -43,7 +43,7 @@ Sie prüft erforderliche Dateien, lokale Links und Assets, zentrale Metadaten so
 
 ## Öffentlicher Kontakt
 
-Der derzeit freigegebene allgemeine Kontakt sowie Support-, Datenschutz- und Impressumskontakt ist `julian.mentges@gmail.com`. Er wird zentral auf der Supportseite sowie auf den rechtlichen Seiten verwendet. Später kann er durch eine dedizierte Domain-Adresse wie `support@jm-apps.de` ersetzt werden; dann müssen `support/index.html`, `privacy/index.html`, `imprint/index.html` und diese Dokumentation gemeinsam aktualisiert werden.
+Der derzeit freigegebene allgemeine Kontakt sowie Support-, Datenschutz- und Impressumskontakt ist `contact.jm.apps@gmail.com`. Er wird zentral auf der Supportseite sowie auf den rechtlichen Seiten verwendet. Später kann er durch eine dedizierte Domain-Adresse wie `support@jm-apps.de` ersetzt werden; dann müssen `support/index.html`, `privacy/index.html`, `imprint/index.html`, `terms/index.html`, `account-deletion/index.html` und diese Dokumentation gemeinsam aktualisiert werden.
 
 ## Vor dem öffentlichen Start
 
