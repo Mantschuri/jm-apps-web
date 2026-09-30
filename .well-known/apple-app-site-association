@@ -1,0 +1,21 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "26TTLFCACJ.de.jmapps.knowi",
+        "components": [
+          { "/": "/knowi/daily" },
+          { "/": "/knowi/friends" },
+          { "/": "/knowi/duel/*" }
+        ]
+      },
+      {
+        "appID": "26TTLFCACJ.de.jmapps.talumi",
+        "components": [
+          { "/": "/talumi/join/*" }
+        ]
+      }
+    ]
+  }
+}

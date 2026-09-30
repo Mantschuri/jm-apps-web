@@ -28,6 +28,7 @@ class PageParser(HTMLParser):
         self.meta_names = set()
         self.meta_properties = set()
         self.canonical = False
+        self.ids = set()
 
     def handle_starttag(self, tag, attrs):
         values = dict(attrs)
@@ -42,6 +43,8 @@ class PageParser(HTMLParser):
                 self.meta_properties.add(values["property"])
         if tag == "link" and values.get("rel") == "canonical":
             self.canonical = True
+        if values.get("id"):
+            self.ids.add(values["id"])
         for attribute in ("href", "src"):
             if attribute in values:
                 self.references.append(values[attribute])
@@ -65,6 +68,7 @@ def local_target(page, reference):
 
 def main():
     errors = []
+    parsed_pages = {}
     for relative in REQUIRED:
         if not (ROOT / relative).is_file():
             errors.append(f"Missing required file: {relative}")
@@ -73,6 +77,7 @@ def main():
         parser = PageParser()
         text = page.read_text(encoding="utf-8")
         parser.feed(text)
+        parsed_pages[page.resolve()] = parser
         label = page.relative_to(ROOT)
         if not parser.lang:
             errors.append(f"{label}: missing language declaration")
@@ -88,13 +93,22 @@ def main():
                 if prop not in parser.meta_properties:
                     errors.append(f"{label}: missing {prop}")
         for reference in parser.references:
-            if reference.startswith(("http://", "https://", "mailto:", "#")):
+            if reference.startswith(("http://", "https://", "mailto:")):
                 continue
             target = local_target(page, reference)
             if ROOT not in target.parents and target != ROOT:
                 errors.append(f"{label}: reference leaves site root: {reference}")
             elif not target.exists():
                 errors.append(f"{label}: broken local reference: {reference}")
+            fragment = urlsplit(reference).fragment
+            if fragment and target.exists() and target.suffix == ".html":
+                target_parser = parsed_pages.get(target)
+                if target_parser is None:
+                    target_parser = PageParser()
+                    target_parser.feed(target.read_text(encoding="utf-8"))
+                    parsed_pages[target] = target_parser
+                if fragment not in target_parser.ids:
+                    errors.append(f"{label}: missing fragment target: {reference}")
 
     for path in ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts:
