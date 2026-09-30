@@ -35,10 +35,10 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outlin
 .shell { width: min(calc(100% - 2.5rem), var(--max)); margin-inline: auto; }
 
 .site-header { position: relative; z-index: 10; border-bottom: 1px solid transparent; }
-.nav { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
+.nav { min-height: 5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem; }
 .brand { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .7rem; font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -.02em; }
 .brand-mark { width: 1.85rem; aspect-ratio: 1; display: grid; place-items: center; border-radius: .65rem .65rem .65rem .2rem; color: var(--paper); background: var(--plum); font-size: .63rem; letter-spacing: -.04em; }
-.nav-links { display: flex; align-items: center; gap: 1.8rem; list-style: none; margin: 0; padding: 0; }
+.nav-links { display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; gap: 1.8rem; list-style: none; margin: 0; padding: 0; }
 .nav-links a { min-height: 2.75rem; display: inline-flex; align-items: center; color: var(--plum-soft); font-size: .93rem; font-weight: 650; text-decoration: none; }
 .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--plum); }
 .menu-button { min-width: 2.75rem; min-height: 2.75rem; display: none; padding: .5rem; border: 0; background: transparent; color: var(--plum); font: inherit; font-weight: 700; cursor: pointer; }
@@ -125,7 +125,7 @@ p { margin-top: 0; }
 
 @media (max-width: 760px) {
   .shell { width: min(calc(100% - 1.5rem), var(--max)); }
-  .nav { min-height: 4.5rem; }
+  .nav { min-height: 4.5rem; gap: .5rem; }
   .menu-button { display: block; }
   .nav-links { position: absolute; top: 4rem; left: .75rem; right: .75rem; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: .6rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--paper); box-shadow: var(--shadow); }
   .nav-links.open { display: flex; }

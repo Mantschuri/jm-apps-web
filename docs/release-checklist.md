@@ -6,10 +6,10 @@ All items below are manual and intentionally remain incomplete until real releas
 
 - [x] Order `jm-apps.de`.
 - [x] Enable GitHub Pages from `main` and `/ (root)`.
-- [ ] Complete netcup domain activation.
+- [ ] Confirm whether netcup is only registrar/DNS or an intended future website host; do not migrate without a separate decision.
 - [x] Add `jm-apps.de` as the GitHub Pages custom domain and preserve `CNAME`.
-- [ ] Configure the exact DNS records currently specified by GitHub.
-- [ ] Verify the domain and enable HTTPS.
+- [ ] Reconfirm the existing DNS records and Pages custom-domain settings before deployment; do not change them as part of a website content release.
+- [x] Verify that the current domain answers over HTTPS from GitHub Pages (observed 2026-09-30).
 
 ## Legal
 
@@ -21,7 +21,8 @@ All items below are manual and intentionally remain incomplete until real releas
 - [ ] Complete and review the release-specific privacy information for both apps.
 - [ ] Obtain professional review of the terms of use and account-deletion wording.
 - [ ] Verify whether a public VSBG statement is required from the operator's actual employee count and circumstances.
-- [ ] Manually verify the current official-source links and BayLDA competence; external source retrieval was unavailable during the engineering pass.
+- [x] Recheck the current official technical/store/legal source links used by the 2026-09-30 release report.
+- [ ] Obtain qualified legal review, including competent supervisory authority, provider roles, transfers and retention.
 
 ## Support
 
@@ -37,7 +38,8 @@ All items below are manual and intentionally remain incomplete until real releas
 - [ ] Complete Apple App Privacy disclosures against each production build.
 - [ ] Complete Google Play Data Safety declarations against each production build.
 - [ ] Configure and verify the public privacy and account-deletion URLs in store records.
-- [ ] Implement and verify in-app account deletion before release where required by store policy.
+- [x] Implement in-app deletion for registered accounts and automatically created server guests.
+- [ ] Verify the deletion flow with the final deployed backend and both final store binaries without affecting real user data.
 
 ## Audience and children
 
@@ -49,8 +51,8 @@ All items below are manual and intentionally remain incomplete until real releas
 
 ## AdMob
 
-- [ ] Obtain the real Publisher ID after AdMob account and app setup.
-- [ ] Put Google's exact supplied publisher line in `app-ads.txt`.
+- [x] Verify the Publisher ID from the current 2026-09-30 AdMob/release handoff.
+- [x] Put the exact evidenced seller line in `app-ads.txt`.
 - [ ] Confirm `https://jm-apps.de/app-ads.txt` is publicly reachable.
 - [ ] Verify the developer website in the relevant store records.
 - [ ] Reconcile AdMob/UMP behavior with consent, privacy notice, Apple privacy labels, and Google Data Safety before production activation.
@@ -62,8 +64,9 @@ All items below are manual and intentionally remain incomplete until real releas
 
 ## Final QA
 
-- [ ] Run `python3 scripts/check_site.py`.
-- [ ] Preview the site locally at common phone, tablet, and desktop widths.
-- [ ] Test keyboard navigation, the mobile menu, and the Escape key.
+- [ ] Before the final public KNOWI/TALUMI app release, Astra must re-audit the complete website, legal and store state against the final app builds and store declarations, including App Privacy, Data Safety, UMP/Privacy Options, Kids/Families, ATT/tracking, Android App Links, AASA, app-ads.txt, account deletion, support contacts, DSA/trader information and actual store availability.
+- [x] Run `python3 scripts/check_site.py` (PASS 2026-09-30).
+- [x] Preview the site locally at 320, 390, 768 and 1440 px (PASS 2026-09-30).
+- [x] Test keyboard navigation, skip link, mobile menu, Escape and focus restoration (PASS 2026-09-30).
 - [ ] Verify all production pages and store/support links after deployment.
 - [x] Add the approved social preview image and metadata to all public pages.

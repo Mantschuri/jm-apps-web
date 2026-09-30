@@ -29,7 +29,7 @@ Im Repository ausführen:
 python3 -m http.server 8080
 ```
 
-Danach [http://localhost:8080](http://localhost:8080) öffnen. Es gibt keinen Installations- oder Build-Schritt.
+Danach [http://127.0.0.1:8080](http://127.0.0.1:8080) öffnen. Es gibt keinen Installations- oder Build-Schritt.
 
 ## Wartung und QA
 
@@ -51,23 +51,27 @@ Die Betreiber- und Kontaktangaben sind mit den freigegebenen Daten befüllt. Fol
 
 1. Impressum, Website-Datenschutz, Nutzungsbedingungen und die release-spezifischen Datenschutzhinweise müssen final professionell rechtlich geprüft werden.
 2. In `knowi/index.html` und `talumi/index.html`: echte App-Store- und Google-Play-Links anstelle der inaktiven Store-Elemente einsetzen.
-3. In `app-ads.txt`: Nach Einrichtung des AdMob-Kontos und der Apps die aktuelle leere Datei exakt mit der von Google bereitgestellten Publisher-Zeile befüllen. Sie muss später unter `https://jm-apps.de/app-ads.txt` erreichbar sein.
+3. `app-ads.txt` enthält die im lokalen AdMob-/Releasehandoff vom 30.09.2026 belegte Sellerzeile. Sie wird unter `https://jm-apps.de/app-ads.txt` ohne Umleitung als Klartext bereitgestellt und muss nach Veröffentlichungen zusätzlich im AdMob-Crawler geprüft werden.
 4. Das freigegebene Social-Preview-Bild liegt unter `assets/images/og-jm-apps.png` und wird von den öffentlichen Seiten per Open-Graph- und Twitter-Card-Metadaten referenziert.
 
 Die interne Entscheidungs- und Quellenübersicht steht in `docs/compliance/legal-baseline.md`. Sie dokumentiert auch die bewusst nicht eingefügten ODR- und VSBG-Texte, den Website-Speicheraudit sowie offene Store-, Kids- und AdMob-Prüfungen. Diese technische Baseline ersetzt keine Rechtsberatung.
 
 ## GitHub Pages und Domain
 
-Die Website wird bereits per GitHub Pages direkt aus `main` und dem Ordner `/ (root)` bereitgestellt. Die eingecheckte `CNAME`-Datei setzt `jm-apps.de` als Custom Domain; Domain-Aktivierung, DNS-Prüfung und HTTPS sind noch nicht vollständig abgeschlossen. Für die Umstellung:
+Die Website wird nach Repository-Dokumentation und erneutem HTTP-Nachweis vom 30.09.2026 per GitHub Pages direkt aus `main` und dem Ordner `/ (root)` bereitgestellt. Die eingecheckte `CNAME`-Datei setzt `jm-apps.de` als Custom Domain; HTTPS antwortet öffentlich mit `server: GitHub.com`. Netcup ist als möglicher Domain-/DNS-Anbieter genannt, seine genaue Rolle ist aber nicht belegt. Daraus folgt kein Hostingwechsel. Für Veröffentlichungen:
 
-1. Die Domain-Aktivierung beim Anbieter abschließen.
-2. Im GitHub-Repository **Settings → Pages** öffnen und den bestehenden Branch-Deploy prüfen.
-3. Unter **Custom domain** prüfen, dass `jm-apps.de` aus der `CNAME`-Konfiguration angezeigt wird.
-4. Beim DNS-Anbieter die von GitHub aktuell dokumentierten DNS-Einträge setzen; keine Werte aus diesem Repository übernehmen oder raten.
-5. DNS-Prüfung und gegebenenfalls Domain-Verifizierung in GitHub abschließen.
-6. Nach erfolgreicher DNS-Auflösung **Enforce HTTPS** aktivieren.
+1. Im GitHub-Repository **Settings → Pages** den bestehenden Branch-Deploy und mögliche Automationen erneut prüfen.
+2. Unter **Custom domain** prüfen, dass `jm-apps.de` aus der `CNAME`-Konfiguration angezeigt wird und HTTPS erzwungen bleibt.
+3. Die tatsächliche Registrar-/DNS-Rolle von netcup getrennt vom Websitehosting dokumentieren; keine DNS-Werte raten oder ändern.
+4. Beachten, dass ein Push oder Merge nach `main` nach diesem Stand unmittelbar veröffentlichen kann.
 
 Die vorhandene `CNAME`-Datei muss bei künftigen Deployments erhalten bleiben.
+
+### Apple Universal Links vorbereiten
+
+GitHub Pages veröffentlicht dieses Repository direkt aus `/ (root)`. Durch `.nojekyll` kann auch `/.well-known/` statisch ausgeliefert werden. Die lokale AASA-Fassung verwendet den Application-Identifier-Prefix `26TTLFCACJ`, der am 30.09.2026 direkt aus beiden signierten Build-5-Distribution-IPAs gelesen wurde. Beide Artefakte enthalten außerdem `applinks:jm-apps.de` und `get-task-allow=false`.
+
+Die identische Zuordnung ist unter `/.well-known/apple-app-site-association` und `/apple-app-site-association` eingecheckt. Die lokale JSON-/Routingprüfung ersetzt nicht die Apple-CDN-/Geräteprüfung nach einem autorisierten Deploy. `assetlinks.json` bleibt gesperrt, bis die beiden echten Play-App-Signing-SHA-256-Fingerprints vorliegen; Upload-Key- oder Debug-Fingerprints sind kein Ersatz.
 
 ## Adding a new app
 
