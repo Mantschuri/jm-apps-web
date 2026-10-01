@@ -1,0 +1,19 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "<APPLE_PAID_TEAM_ID>.de.jmapps.knowi",
+        "components": [
+          { "/": "/knowi/daily" },
+          { "/": "/knowi/friends" },
+          { "/": "/knowi/duel/*" }
+        ]
+      },
+      {
+        "appID": "<APPLE_PAID_TEAM_ID>.de.jmapps.talumi",
+        "components": [{ "/": "/talumi/join/*" }]
+      }
+    ]
+  }
+}

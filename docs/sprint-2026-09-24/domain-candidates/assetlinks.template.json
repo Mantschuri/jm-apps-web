@@ -1,0 +1,18 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "de.jmapps.knowi",
+      "sha256_cert_fingerprints": ["<KNOWI_PLAY_APP_SIGNING_SHA256>"]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "de.jmapps.talumi",
+      "sha256_cert_fingerprints": ["<TALUMI_PLAY_APP_SIGNING_SHA256>"]
+    }
+  }
+]
