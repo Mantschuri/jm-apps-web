@@ -73,6 +73,32 @@ GitHub Pages veröffentlicht dieses Repository direkt aus `/ (root)`. Durch `.no
 
 Die identische Zuordnung ist unter `/.well-known/apple-app-site-association` und `/apple-app-site-association` eingecheckt. Die lokale JSON-/Routingprüfung ersetzt nicht die Apple-CDN-/Geräteprüfung nach einem autorisierten Deploy. `assetlinks.json` bleibt gesperrt, bis die beiden echten Play-App-Signing-SHA-256-Fingerprints vorliegen; Upload-Key- oder Debug-Fingerprints sind kein Ersatz.
 
+### Öffentliche Delivery-Abnahme (07.10.2026)
+
+`python3 scripts/audit_public_delivery.py --output /tmp/jm-public-delivery.json`
+prüft GET/HEAD, Redirectketten und exakte Bytes für app-ads.txt mit normalem
+User-Agent, Googlebot, Mediapartners-Google und Google-adstxt sowie robots.txt
+und beide AASA-Pfade. Falls die lokale Python-Installation keinen CA-Pfad
+kennt, kann unter macOS `--ca-file /etc/ssl/cert.pem` verwendet werden.
+Die Ausgabe ist ein Diagnoseprotokoll; ein erfolgreich beendeter Prozess
+bedeutet nicht, dass alle Anforderungen bestanden wurden.
+
+app-ads.txt ist unverändert korrekt: 59 Bytes, UTF-8 ohne BOM, ein abschließendes
+LF, HTTP 200 und `text/plain; charset=utf-8`. Beide öffentlichen Apple-Listings
+liefern die Produktseiten auf `jm-apps.de` als Entwickler-Website. AdMobs
+asynchrone Bestätigung muss getrennt vom technischen HTTP-Ergebnis geprüft werden.
+
+**Offener Hostingfehler:** Beide AASA-Pfade liefern HTTP 200 und identisches,
+korrektes JSON, aber `application/octet-stream`. WebKit startet deshalb einen
+Download. Das bestehende GitHub-Pages-Hosting bietet keine konfigurierbaren
+Response-Header. `_headers`, `.htaccess`, Jekyll-Frontmatter oder eine zusätzliche
+JSON-Datei korrigieren diesen Header nicht. Die [Pages-Konfigurations-API](https://docs.github.com/en/rest/pages/pages)
+bietet dafür keinen Parameter; siehe auch die [GitHub-Antwort zu HTTP-Headern](https://github.com/orgs/community/discussions/54257).
+Eine wirksame Korrektur benötigt eine kontrollierbare HTTP-Auslieferung vor
+GitHub Pages oder anderes Hosting. Im Abschlussauftrag sind Hostingmigrationen
+ausgeschlossen; DNS, Hosting und AASA-Inhalt wurden deshalb nicht verändert.
+Der MIME-Fix ist ausdrücklich **nicht** als erledigt zu bewerten.
+
 ## Adding a new app
 
 1. Einen neuen Ordner wie `app-name/index.html` anlegen und eine bestehende Produktseite als strukturelle Vorlage verwenden.
