@@ -50,7 +50,7 @@ Der derzeit freigegebene allgemeine Kontakt sowie Support-, Datenschutz- und Imp
 Die Betreiber- und Kontaktangaben sind mit den freigegebenen Daten befüllt. Folgende externe Angaben und Prüfungen bleiben offen:
 
 1. Impressum, Website-Datenschutz, Nutzungsbedingungen und die release-spezifischen Datenschutzhinweise müssen final professionell rechtlich geprüft werden.
-2. In `knowi/index.html` und `talumi/index.html`: echte App-Store- und Google-Play-Links anstelle der inaktiven Store-Elemente einsetzen.
+2. iOS-CTAs für KNOWI und TALUMI sind aktiv (07.10.2026); Deutschland/EU unterliegt noch Apples DSA-Prüfung. Google-Play-CTAs bleiben bis zur öffentlichen Verfügbarkeit inaktiv.
 3. `app-ads.txt` enthält die im lokalen AdMob-/Releasehandoff vom 30.09.2026 belegte Sellerzeile. Sie wird unter `https://jm-apps.de/app-ads.txt` ohne Umleitung als Klartext bereitgestellt und muss nach Veröffentlichungen zusätzlich im AdMob-Crawler geprüft werden.
 4. Das freigegebene Social-Preview-Bild liegt unter `assets/images/og-jm-apps.png` und wird von den öffentlichen Seiten per Open-Graph- und Twitter-Card-Metadaten referenziert.
 
@@ -82,4 +82,15 @@ Die identische Zuordnung ist unter `/.well-known/apple-app-site-association` und
 5. Navigation oder Footer nur erweitern, wenn die Informationsarchitektur dies wirklich benötigt.
 6. Die neue öffentliche URL zu `sitemap.xml` hinzufügen und `python3 scripts/check_site.py` ausführen.
 
-Auf strukturiertes JSON-LD wird vorerst verzichtet: Die Apps haben noch keine Store-URLs und JM Apps ist ein Projekt-/Studioname, keine separate juristische Person. Präzise Metadaten haben Vorrang vor SEO-Dekoration.
+Auf strukturiertes JSON-LD wird vorerst verzichtet. JM Apps ist ein Projekt-/Studioname, keine separate juristische Person. Präzise Metadaten haben Vorrang vor SEO-Dekoration.
+
+## Kanonische Storelinks
+
+Die Apple-URLs werden in `knowi-talumi/backend/app/services/social_marketing.py` gepflegt. Die HTML-CTAs sind statische Exportartefakte dieser Konfiguration. Nach Änderungen im Backend-Repository ausführen:
+
+```sh
+python3 backend/scripts/export_store_links.py ../jm-apps-web
+python3 backend/scripts/export_store_links.py ../jm-apps-web --check
+```
+
+Kein Client benötigt eine zweite Storelinktabelle. Androidstatus bleibt separat.
