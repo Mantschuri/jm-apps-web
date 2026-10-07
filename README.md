@@ -94,3 +94,11 @@ python3 backend/scripts/export_store_links.py ../jm-apps-web --check
 ```
 
 Kein Client benötigt eine zweite Storelinktabelle. Androidstatus bleibt separat.
+
+## Responsive Browser-Abnahme (07.10.2026)
+
+`node scripts/browser_audit.cjs` nutzt ein installiertes Playwright (`playwright` im Node-Suchpfad). `JM_SITE_ORIGIN` wählt den lokalen HTTP-Testserver oder `https://jm-apps.de`, `JM_BROWSER=webkit` den Safari-nahen WebKit-Browser; standardmäßig wird installiertes Chrome verwendet. Bei gemeinsamem lokalem Tooling kann `NODE_PATH` auf dessen `node_modules` zeigen. WebKit wird über `playwright install webkit` bereitgestellt.
+
+Geprüft werden acht Seiten bei 320, 375, 390, 430, 768 und 1440 px: Seitenverhältnisse, Clipping/Overflow, Download-CTAs, Touch-Menü, Footer-Touchflächen, Tastaturzugang, 200% Textgröße und Netzwerkfehler. Screenshots und Resultate liegen ausschließlich unter `.local/responsive-2026-10-07/` (Git-ignored).
+
+Marketing/Social/Bio verwenden die bestehenden Produktseiten. Diese führen über „Im App Store laden“ zum kanonischen Apple-Ziel; es gibt keine zusätzlichen Download- oder Redirect-Routen.

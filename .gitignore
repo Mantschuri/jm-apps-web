@@ -10,3 +10,6 @@ node_modules/
 .venv/
 .pytest_cache/
 *.log
+
+# Browser screenshots and local acceptance evidence
+.local/
