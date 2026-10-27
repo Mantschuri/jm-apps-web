@@ -128,3 +128,14 @@ Kein Client benötigt eine zweite Storelinktabelle. Androidstatus bleibt separat
 Geprüft werden acht Seiten bei 320, 375, 390, 430, 768 und 1440 px: Seitenverhältnisse, Clipping/Overflow, Download-CTAs, Touch-Menü, Footer-Touchflächen, Tastaturzugang, 200% Textgröße und Netzwerkfehler. Screenshots und Resultate liegen ausschließlich unter `.local/responsive-2026-10-07/` (Git-ignored).
 
 Marketing/Social/Bio verwenden die bestehenden Produktseiten. Diese führen über „Im App Store laden“ zum kanonischen Apple-Ziel; es gibt keine zusätzlichen Download- oder Redirect-Routen.
+
+## Google Play production gate (27.10.2026)
+
+Beide Apps liegen mit Version **1.1.0 / Code 9** im Produktionstrack für 178 Länder/Regionen (einschließlich DACH). Google prüft die Releases noch; die öffentlichen Listings liefern derzeit 404. Eingereicht bedeutet noch nicht öffentlich verfügbar. Deshalb bleiben die Android-Buttons bis zur Freigabe deaktiviert.
+
+| App | Offizielles Listing nach Freigabe |
+| --- | --- |
+| KNOWI | https://play.google.com/store/apps/details?id=de.jmapps.knowi |
+| TALUMI | https://play.google.com/store/apps/details?id=de.jmapps.talumi |
+
+Nach verifiziertem öffentlichem Listing für die jeweilige App deren `android`-Wert in der oben genannten kanonischen Backend-Konfiguration setzen. Der bestehende Export erzeugt dann den gleichwertigen Google-Play-Button; die andere App bleibt unabhängig deaktiviert. Anschließend Export mit `--check`, `python3 scripts/check_site.py`, responsive Browser-Abnahme und normaler GitHub-Pages-Deploy. Keine neue AAB oder Neugestaltung nötig.
