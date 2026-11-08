@@ -129,13 +129,10 @@ Geprüft werden acht Seiten bei 320, 375, 390, 430, 768 und 1440 px: Seitenverh�
 
 Marketing/Social/Bio verwenden die bestehenden Produktseiten. Diese führen über „Im App Store laden“ zum kanonischen Apple-Ziel; es gibt keine zusätzlichen Download- oder Redirect-Routen.
 
-## Google Play production gate (27.10.2026)
+## Google Play veröffentlicht (08.11.2026)
 
-Beide Apps liegen mit Version **1.1.0 / Code 9** im Produktionstrack für 178 Länder/Regionen (einschließlich DACH). Google prüft die Releases noch; die öffentlichen Listings liefern derzeit 404. Eingereicht bedeutet noch nicht öffentlich verfügbar. Deshalb bleiben die Android-Buttons bis zur Freigabe deaktiviert.
+Beide öffentlichen Play-Listings liefern HTTP 200. Die Produktseiten verlinken jetzt auf KNOWI (`de.jmapps.knowi`) und TALUMI (`de.jmapps.talumi`). Die bestehenden Apple-Links bleiben erhalten.
 
-| App | Offizielles Listing nach Freigabe |
-| --- | --- |
-| KNOWI | https://play.google.com/store/apps/details?id=de.jmapps.knowi |
-| TALUMI | https://play.google.com/store/apps/details?id=de.jmapps.talumi |
+`.well-known/assetlinks.json` enthält für beide Apps die am 08.11.2026 direkt aus Play Console → Play App-Signatur übernommenen Digital-Asset-Links-Snippets einschließlich der App-Signing-SHA-256-Fingerprints. Upload-Key-Fingerprints wurden nicht verwendet.
 
-Nach verifiziertem öffentlichem Listing für die jeweilige App deren `android`-Wert in der oben genannten kanonischen Backend-Konfiguration setzen. Der bestehende Export erzeugt dann den gleichwertigen Google-Play-Button; die andere App bleibt unabhängig deaktiviert. Anschließend Export mit `--check`, `python3 scripts/check_site.py`, responsive Browser-Abnahme und normaler GitHub-Pages-Deploy. Keine neue AAB oder Neugestaltung nötig.
+Die Android-Links sind in diesem Website-Release direkt gepflegt. Der frühere Backend-Export liegt im eingefrorenen Social-Bereich und wurde deshalb nicht verändert; ihn nicht ungeprüft über die nun veröffentlichten Links laufen lassen.

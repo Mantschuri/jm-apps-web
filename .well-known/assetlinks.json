@@ -1,0 +1,26 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "de.jmapps.knowi",
+      "sha256_cert_fingerprints": [
+        "CC:C2:31:25:9B:FF:43:12:A0:2D:EB:8E:55:81:BD:D6:CF:A4:35:7C:90:D4:2E:7B:E1:DB:22:F3:98:B6:8C:E1"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "de.jmapps.talumi",
+      "sha256_cert_fingerprints": [
+        "5C:A0:36:84:64:45:36:FF:EB:2B:0A:25:94:97:D2:C6:7D:38:EA:54:BB:89:5E:16:7E:99:91:D5:76:A2:06:C2"
+      ]
+    }
+  }
+]
