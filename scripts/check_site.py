@@ -60,7 +60,7 @@ class PageParser(HTMLParser):
 
 def local_target(page, reference):
     path = urlsplit(reference).path
-    target = page.parent / path
+    target = ROOT / path.lstrip("/") if path.startswith("/") else page.parent / path
     if path.endswith("/") or not target.suffix:
         target /= "index.html"
     return target.resolve()
