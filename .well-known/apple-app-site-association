@@ -5,15 +5,35 @@
       {
         "appID": "26TTLFCACJ.de.jmapps.knowi",
         "components": [
-          { "/": "/knowi/daily" },
-          { "/": "/knowi/friends" },
-          { "/": "/knowi/duel/*" }
+          {
+            "/": "/knowi/daily"
+          },
+          {
+            "/": "/knowi/friends"
+          },
+          {
+            "/": "/knowi/duel/*"
+          },
+          {
+            "/": "/knowi/invite"
+          },
+          {
+            "/": "/knowi/invite/"
+          }
         ]
       },
       {
         "appID": "26TTLFCACJ.de.jmapps.talumi",
         "components": [
-          { "/": "/talumi/join/*" }
+          {
+            "/": "/talumi/join/*"
+          },
+          {
+            "/": "/talumi/invite"
+          },
+          {
+            "/": "/talumi/invite/"
+          }
         ]
       }
     ]
