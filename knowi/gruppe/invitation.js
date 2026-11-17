@@ -14,7 +14,7 @@
   const invitation = parse(window.location.hash);
   if (!invitation) return;
   const { code, name, password } = invitation;
-  const app = `knowi-private://group/${code}#${new URLSearchParams({name, password})}`;
+  const app = `knowi://group/${code}#${new URLSearchParams({name, password})}`;
   document.getElementById('status').hidden = true;
   document.getElementById('invitation').hidden = false;
   document.getElementById('group-name').textContent = name;
@@ -25,7 +25,7 @@
     const status = document.getElementById('copy-status');
     try {
       await navigator.clipboard.writeText(window.location.href);
-      status.textContent = 'Kopiert. In KNOWI Privat „Einladung einfügen“ wählen.';
+      status.textContent = 'Kopiert. In KNOWI „Einladung einfügen“ wählen.';
     } catch (_) { status.textContent = 'Bitte den Link aus der Adresszeile kopieren.'; }
   });
 })();

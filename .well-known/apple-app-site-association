@@ -19,6 +19,12 @@
           },
           {
             "/": "/knowi/invite/"
+          },
+          {
+            "/": "/knowi/gruppe"
+          },
+          {
+            "/": "/knowi/gruppe/"
           }
         ]
       },
