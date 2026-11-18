@@ -11,21 +11,30 @@
     return { code, name, password };
   };
   if (typeof module !== 'undefined') { module.exports = { parse }; return; }
-  const invitation = parse(window.location.hash);
-  if (!invitation) return;
-  const { code, name, password } = invitation;
-  const app = `knowi://group/${code}#${new URLSearchParams({name, password})}`;
-  document.getElementById('status').hidden = true;
-  document.getElementById('invitation').hidden = false;
-  document.getElementById('group-name').textContent = name;
-  document.getElementById('visible-name').textContent = name;
-  document.getElementById('password').textContent = password;
-  document.getElementById('open-app').href = app;
+  const render = () => {
+    const invitation = parse(window.location.hash);
+    document.getElementById('status').hidden = !!invitation;
+    document.getElementById('invitation').hidden = !invitation;
+    document.getElementById('copy-status').textContent = '';
+    for (const id of ['group-name', 'visible-name', 'password']) document.getElementById(id).textContent = '';
+    const banner = document.querySelector('meta[name="apple-itunes-app"]');
+    banner.content = 'app-id=6817281226';
+    if (!invitation) return;
+    const { name, password } = invitation;
+    banner.content += `, app-argument=${window.location.href}`;
+    document.getElementById('apple-store').hidden = /Android/i.test(navigator.userAgent);
+    document.getElementById('google-store').hidden = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    document.getElementById('group-name').textContent = name;
+    document.getElementById('visible-name').textContent = name;
+    document.getElementById('password').textContent = password;
+  };
+  render();
+  window.addEventListener('hashchange', render);
   document.getElementById('copy-invite').addEventListener('click', async () => {
     const status = document.getElementById('copy-status');
     try {
       await navigator.clipboard.writeText(window.location.href);
-      status.textContent = 'Kopiert. In KNOWI „Einladung einfügen“ wählen.';
+      status.textContent = 'Kopiert. In KNOWI „Einladungslink einfügen“ wählen.';
     } catch (_) { status.textContent = 'Bitte den Link aus der Adresszeile kopieren.'; }
   });
 })();
