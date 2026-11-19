@@ -4,7 +4,8 @@
   const path = window.location.pathname;
   if (/^\/knowi\/(?:daily|friends|duel\/[^/]+)\/?$/.test(path)) {
     window.location.replace('/knowi/');
-  } else if (/^\/talumi\/join\/[^/]+\/?$/.test(path)) {
-    window.location.replace('/talumi/');
+  } else if (/^\/talumi\/join\/[A-HJ-NP-Z2-9]{6}\/?$/.test(path)) {
+    const code = path.split('/')[3];
+    window.location.replace('/talumi/join/#code=' + code);
   }
 })();

@@ -45,6 +45,9 @@
           },
           {
             "/": "/talumi/gruppe/"
+          },
+          {
+            "/": "/talumi/join/"
           }
         ]
       }

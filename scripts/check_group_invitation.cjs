@@ -33,6 +33,18 @@ const origin = process.env.JM_SITE_ORIGIN || 'http://127.0.0.1:8087';
           assert.match(await page.locator('meta[name="apple-itunes-app"]').getAttribute('content'),/app-argument=.*#code=/);
           await page.goto(origin+'/'+brand+'/gruppe/#code=bad&password=Test');
           assert.equal(await page.locator('#invitation').isVisible(),false);
+          if (brand === 'talumi') {
+            await page.goto(origin+'/talumi/join/#code=ABC234');
+            assert.equal(await page.locator('#round-code').textContent(),'ABC234');
+            assert.equal(await page.locator('#apple-store').isVisible(),device==='iphone');
+            assert.equal(await page.locator('#google-store').isVisible(),device==='android');
+            await page.locator('#copy-invite').click();
+            assert.equal(await page.evaluate(()=>window.copiedInvitation),'ABC234');
+            assert.ok(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));
+            await page.goto(origin+'/talumi/join/#code=ABC234&token=bad');
+            assert.equal(await page.locator('#invitation').isVisible(),false);
+            count++;
+          }
           await page.close();count++;
         }
         }
