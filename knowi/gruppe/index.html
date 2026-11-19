@@ -11,22 +11,25 @@
 <meta property="og:description" content="Zusammen lernen, spielen, abstimmen und wichteln. Mach mit in unserer Gruppe!">
 <meta property="og:image" content="https://jm-apps.de/assets/images/knowi-mark.png">
 <meta property="og:url" content="https://jm-apps.de/knowi/gruppe/">
-<link rel="stylesheet" href="invitation.css"><script src="invitation.js" defer></script>
+<link rel="stylesheet" href="invitation.css?v=2"><script src="invitation.js?v=2" defer></script>
 </head>
 <body><main>
 <img class="brand" src="https://jm-apps.de/assets/images/knowi-mark.png" alt="KNOWI" width="84" height="84">
 <p class="eyebrow">GEMEINSAM MIT KNOWI</p><h1>Du bist eingeladen.</h1>
 <p id="status">Öffne deinen vollständigen Einladungslink, um der Gruppe beizutreten.</p>
 <section id="invitation" hidden aria-label="Deine Einladung">
-<h2 id="group-name"></h2><p>Zusammen macht es mehr Spaß.</p>
-<p>Schon installiert? Öffne den Einladungslink noch einmal direkt in deiner Nachricht. Auf dem iPhone kannst du auch oben im KNOWI-Banner auf „Öffnen“ tippen.</p>
-<p>Noch nicht installiert? Kopiere zuerst die Einladung und lade dann KNOWI. Wähle in der App „Gemeinsam“ → „Einladungslink einfügen“.</p>
+<h2 id="group-name"></h2>
+<p class="next-step">Lade KNOWI herunter und tippe danach noch einmal auf den Einladungslink in deiner Nachricht.</p>
+<div class="downloads" aria-label="KNOWI herunterladen">
+<a id="apple-store" class="button" href="https://apps.apple.com/de/app/id6817281226">Im App Store laden</a>
+<a id="google-store" class="button" href="https://play.google.com/store/apps/details?id=de.jmapps.knowi">Bei Google Play laden</a>
+</div>
+<details class="help"><summary>Einladung in der App eingeben</summary>
+<p>Öffne in KNOWI „Gemeinsam“ → „Einladungslink einfügen“ und füge die kopierte Einladung ein.</p>
 <button id="copy-invite" class="secondary" type="button">Einladung kopieren</button>
 <p id="copy-status" role="status" aria-live="polite"></p>
-<a id="apple-store" class="button" href="https://apps.apple.com/de/app/id6817281226">KNOWI im App Store</a>
-<a id="google-store" class="button" href="https://play.google.com/store/apps/details?id=de.jmapps.knowi">KNOWI bei Google Play</a>
-<details><summary>Name und Passwort anzeigen</summary><p class="caption">Gruppenname</p><p id="visible-name"></p><p class="caption">Passwort</p><p id="password"></p></details>
+<p class="caption">Gruppenname</p><p id="visible-name"></p><p class="caption">Passwort</p><p id="password"></p>
+</details>
 </section>
-<p class="hint">Für diese Einladung brauchst du KNOWI ab Version 1.4.1. Unter „Gemeinsam“ kannst du die Einladung auch einfügen und deinen Namen wählen. <a href="/knowi/">Mehr zur App und ihrer Verfügbarkeit</a>.</p>
 <footer><a href="https://jm-apps.de/privacy/">Datenschutz</a><span>·</span><a href="https://jm-apps.de/imprint/">Impressum</a></footer>
 </main></body></html>

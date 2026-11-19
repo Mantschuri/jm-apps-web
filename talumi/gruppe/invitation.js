@@ -23,7 +23,7 @@
     const { name, password } = invitation;
     banner.content += `, app-argument=${window.location.href}`;
     document.getElementById('apple-store').hidden = /Android/i.test(navigator.userAgent);
-    document.getElementById('google-store').hidden = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    document.getElementById('google-store').hidden = (/iPhone|iPad|iPod/i.test(navigator.userAgent) || (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1));
     document.getElementById('group-name').textContent = name;
     document.getElementById('visible-name').textContent = name;
     document.getElementById('password').textContent = password;

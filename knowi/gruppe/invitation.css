@@ -7,3 +7,13 @@ p { line-height: 1.6; } section { background: #eee1ee; border-radius: 28px; padd
 .button { background: #80567f; color: white; }.secondary { background: transparent; color: #38263c; border: 1px solid #a38aa3; } :focus-visible { outline: 3px solid #496843; outline-offset: 4px; }
 .hint, footer { font-size: .875rem; color: #625966; }footer { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; } a { color: inherit; } details { margin-top: 20px; } summary { cursor: pointer; padding: 12px 0; }.caption { font-size: .8rem; margin-bottom: 0; }
 #password, #visible-name { white-space: pre-wrap; overflow-wrap: anywhere; margin-top: 4px; } [hidden] { display: none !important; }
+
+.next-step { margin: 0 0 24px; }
+.downloads { display: grid; gap: 12px; }
+.downloads .button { margin: 0; }
+.help { border-top: 1px solid currentColor; margin-top: 24px; padding-top: 4px; }
+.help summary { font-weight: 650; min-height: 48px; }
+.code { font-size: 1.5rem; font-weight: 700; letter-spacing: .12em; }
+[role="status"]:empty { display: none; }
+@media (max-width: 360px) { body { padding: 24px 16px; } section { padding: 24px 20px; } }
+h1, .button, button, summary, p { overflow-wrap: anywhere; }

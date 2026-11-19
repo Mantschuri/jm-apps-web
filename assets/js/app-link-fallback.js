@@ -3,7 +3,8 @@
 (() => {
   const path = window.location.pathname;
   if (/^\/knowi\/(?:daily|friends|duel\/[^/]+)\/?$/.test(path)) {
-    window.location.replace('/knowi/');
+    const link = path + window.location.search + window.location.hash;
+    window.location.replace('/knowi/oeffnen/#' + new URLSearchParams({link}));
   } else if (/^\/talumi\/join\/[A-HJ-NP-Z2-9]{6}\/?$/.test(path)) {
     const code = path.split('/')[3];
     window.location.replace('/talumi/join/#code=' + code);

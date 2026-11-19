@@ -25,9 +25,14 @@ const origin = process.env.JM_SITE_ORIGIN || 'http://127.0.0.1:8087';
             assert.match(href,/^https?:\/\//); // No unknown custom scheme with missing app.
             assert.ok(!href.includes('password='));
           }
+          assert.equal(await page.locator('details').getAttribute('open'),null);
+          assert.ok(!(await page.locator('body').innerText()).includes('Schon installiert?'));
+          await page.locator('summary').click();
           await page.locator('#copy-invite').click();
           assert.equal(await page.evaluate(()=>window.copiedInvitation),url);
           assert.match(await page.locator('#copy-status').textContent(),/(?:Einladungslink einfügen|Gruppe beitreten)/);
+          assert.ok(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));
+          await page.evaluate(()=>document.documentElement.style.fontSize='200%');
           assert.ok(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));
           assert.ok(requests.every(u=>!u.includes('password=')));
           assert.match(await page.locator('meta[name="apple-itunes-app"]').getAttribute('content'),/app-argument=.*#code=/);
@@ -38,11 +43,15 @@ const origin = process.env.JM_SITE_ORIGIN || 'http://127.0.0.1:8087';
             assert.equal(await page.locator('#round-code').textContent(),'ABC234');
             assert.equal(await page.locator('#apple-store').isVisible(),device==='iphone');
             assert.equal(await page.locator('#google-store').isVisible(),device==='android');
+            assert.equal(await page.locator('#status').isVisible(),false);
+            await page.locator('summary').click();
             await page.locator('#copy-invite').click();
             assert.equal(await page.evaluate(()=>window.copiedInvitation),'ABC234');
             assert.ok(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));
             await page.goto(origin+'/talumi/join/#code=ABC234&token=bad');
             assert.equal(await page.locator('#invitation').isVisible(),false);
+            assert.equal(await page.locator('#status').isVisible(),true);
+            assert.equal(await page.locator('#round-code').textContent(),'');
             count++;
           }
           await page.close();count++;
