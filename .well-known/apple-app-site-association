@@ -39,6 +39,12 @@
           },
           {
             "/": "/talumi/invite/"
+          },
+          {
+            "/": "/talumi/gruppe"
+          },
+          {
+            "/": "/talumi/gruppe/"
           }
         ]
       }

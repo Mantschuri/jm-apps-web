@@ -7,13 +7,14 @@ const origin = process.env.JM_SITE_ORIGIN || 'http://127.0.0.1:8087';
     const browser = await engine.launch(name === 'chromium' ? {channel:'chrome', headless:true} : {headless:true});
     try {
       for (const [device, ua] of [['iphone','Mozilla/5.0 (iPhone; CPU iPhone OS 26_5 like Mac OS X) AppleWebKit/605.1.15 Version/26.5 Mobile Safari/604.1'],['android','Mozilla/5.0 (Linux; Android 16) AppleWebKit/537.36 Chrome/140 Mobile Safari/537.36']]) {
+        for (const brand of ['knowi', 'talumi']) {
         for (const width of [320, 390, 768]) {
           const page = await browser.newPage({viewport:{width,height:844},userAgent:ua});
           const requests=[];
           page.on('request', r => requests.push(r.url()));
           await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', {value:{writeText:async text=>window.copiedInvitation=text}}));
           const fragment = new URLSearchParams({code:'ABCDEF0123',name:'Julian Test ä & <b>',password:'T!ä🧠'});
-          const url = origin+'/knowi/gruppe/#'+fragment;
+          const url = origin+'/'+brand+'/gruppe/#'+fragment;
           assert.equal((await page.goto(url)).status(),200);
           await page.waitForSelector('#group-name');
           assert.equal(await page.locator('#group-name').textContent(),'Julian Test ä & <b>');
@@ -26,13 +27,14 @@ const origin = process.env.JM_SITE_ORIGIN || 'http://127.0.0.1:8087';
           }
           await page.locator('#copy-invite').click();
           assert.equal(await page.evaluate(()=>window.copiedInvitation),url);
-          assert.match(await page.locator('#copy-status').textContent(),/Einladungslink einfügen/);
+          assert.match(await page.locator('#copy-status').textContent(),/(?:Einladungslink einfügen|Gruppe beitreten)/);
           assert.ok(!(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth)));
           assert.ok(requests.every(u=>!u.includes('password=')));
           assert.match(await page.locator('meta[name="apple-itunes-app"]').getAttribute('content'),/app-argument=.*#code=/);
-          await page.goto(origin+'/knowi/gruppe/#code=bad&password=Test');
+          await page.goto(origin+'/'+brand+'/gruppe/#code=bad&password=Test');
           assert.equal(await page.locator('#invitation').isVisible(),false);
           await page.close();count++;
+        }
         }
       }
     } finally {await browser.close();}

@@ -8,11 +8,11 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-CANDIDATES = ROOT / "docs/sprint-2026-09-24/domain-candidates"
+CANDIDATES = ROOT / ".well-known"
 PLACEHOLDER = re.compile(r"<[^>]+>|\b(?:TODO|CHANGEME|REPLACE_ME)\b", re.I)
 SECRET = re.compile(r"(?:BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY|api[_-]?key\s*[:=]|client[_-]?secret\s*[:=])", re.I)
 ROUTES = {
-    "assetlinks.template.json": ("/.well-known/assetlinks.json", "application/json", False),
+    "assetlinks.json": ("/.well-known/assetlinks.json", "application/json", False),
 }
 AASA_DEPLOY_PATHS = (
     ".well-known/apple-app-site-association",

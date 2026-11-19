@@ -19,6 +19,12 @@
           },
           {
             "/": "/knowi/invite/"
+          },
+          {
+            "/": "/knowi/gruppe"
+          },
+          {
+            "/": "/knowi/gruppe/"
           }
         ]
       },
@@ -33,6 +39,12 @@
           },
           {
             "/": "/talumi/invite/"
+          },
+          {
+            "/": "/talumi/gruppe"
+          },
+          {
+            "/": "/talumi/gruppe/"
           }
         ]
       }
