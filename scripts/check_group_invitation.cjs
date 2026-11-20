@@ -26,6 +26,10 @@ const origin = process.env.JM_SITE_ORIGIN || 'http://127.0.0.1:8087';
             assert.ok(!href.includes('password='));
           }
           assert.equal(await page.locator('details').getAttribute('open'),null);
+          assert.equal(await page.locator('summary').textContent(),'Wie funktioniert das Beitreten?');
+          assert.equal(await page.locator('h3').textContent(),'Noch kein '+brand.toUpperCase()+'?');
+          assert.match(await page.locator('.next-step strong').textContent(),/denselben Einladungslink aus WhatsApp erneut/);
+          assert.equal(await page.locator(device==='iphone'?'#apple-store':'#google-store').textContent(),'Verstanden – App herunterladen');
           assert.ok(!(await page.locator('body').innerText()).includes('Schon installiert?'));
           await page.locator('summary').click();
           await page.locator('#copy-invite').click();

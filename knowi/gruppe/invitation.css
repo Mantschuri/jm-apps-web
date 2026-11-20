@@ -17,3 +17,6 @@ p { line-height: 1.6; } section { background: #eee1ee; border-radius: 28px; padd
 [role="status"]:empty { display: none; }
 @media (max-width: 360px) { body { padding: 24px 16px; } section { padding: 24px 20px; } }
 h1, .button, button, summary, p { overflow-wrap: anywhere; }
+
+h3 { font-size: 1.25rem; margin: 24px 0 8px; }
+.next-step strong { font-weight: 750; }

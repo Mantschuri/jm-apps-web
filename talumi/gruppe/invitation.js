@@ -28,6 +28,17 @@
     document.getElementById('visible-name').textContent = name;
     document.getElementById('password').textContent = password;
   };
+  // Platform choice only; this does not attempt to detect installation.
+  const ios = /iPhone|iPad|iPod/i.test(navigator.userAgent) || (/Macintosh/i.test(navigator.userAgent) && navigator.maxTouchPoints > 1);
+  const android = /Android/i.test(navigator.userAgent);
+  if (ios !== android) {
+    const target = document.getElementById(ios ? 'apple-store' : 'google-store');
+    target.textContent = 'Verstanden – App herunterladen';
+    target.setAttribute('aria-label', `Verstanden – App herunterladen (${ios ? 'App Store' : 'Google Play'})`);
+  } else {
+    document.getElementById('apple-store').textContent = 'Verstanden – im App Store laden';
+    document.getElementById('google-store').textContent = 'Verstanden – bei Google Play laden';
+  }
   render();
   window.addEventListener('hashchange', render);
   document.getElementById('copy-invite').addEventListener('click', async () => {
