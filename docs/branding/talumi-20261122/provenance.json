@@ -1,0 +1,11 @@
+{
+  "source": "Talumi Logo transparent.png",
+  "source_sha256": "af44036180f13efbf27818f696e3ac751bd7b21cf82c745c5ed7133a3bb3590f",
+  "output": "assets/images/talumi-mark.png",
+  "output_sha256": "7545df3773f64f5a3d96be1c3dc7c55f5f2d3c51ac44fec2000ce160cdb236ea",
+  "size": [
+    720,
+    720
+  ],
+  "transformation": "Complete original canvas, proportional Lanczos resize only; no crop or recolor"
+}
