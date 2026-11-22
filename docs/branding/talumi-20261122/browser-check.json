@@ -1,0 +1,58 @@
+[
+  {
+    "width": 320,
+    "route": "/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 320,
+    "route": "/talumi/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 375,
+    "route": "/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 375,
+    "route": "/talumi/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 430,
+    "route": "/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 430,
+    "route": "/talumi/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "route": "/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  },
+  {
+    "width": 1440,
+    "route": "/talumi/",
+    "loaded": true,
+    "proportional": true,
+    "overflow": false
+  }
+]

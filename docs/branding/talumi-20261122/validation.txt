@@ -1,0 +1,8 @@
+TALUMI original logo replacement, 22 November 2026.
+Base: production main 42266b8932b17596fdcba145ad845799280482cb.
+Only runtime change: assets/images/talumi-mark.png. Complete 1254px original canvas proportionally resized to existing 720px; layout unchanged.
+Site validator: 15 pages PASS. Actual predeploy validator: READY, zero blockers.
+Headless browser: home and TALUMI at 320/375/430/1440px, all 8 checks PASS; no clicks/window control.
+Legacy validator unit suite: 4 pass, 2 fail identically on unchanged production base (tests expect obsolete Android template instead of delivered assetlinks.json). No validator or association files modified.
+Pages readback: main, root, legacy, jm-apps.de, built.
+KNOWI and all invitation/runtime files unchanged. Previous logo retained.
