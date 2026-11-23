@@ -136,3 +136,7 @@ Beide öffentlichen Play-Listings liefern HTTP 200. Die Produktseiten verlinken 
 `.well-known/assetlinks.json` enthält für beide Apps die am 08.11.2026 direkt aus Play Console → Play App-Signatur übernommenen Digital-Asset-Links-Snippets einschließlich der App-Signing-SHA-256-Fingerprints. Upload-Key-Fingerprints wurden nicht verwendet.
 
 Die Android-Links sind in diesem Website-Release direkt gepflegt. Der frühere Backend-Export liegt im eingefrorenen Social-Bereich und wurde deshalb nicht verändert; ihn nicht ungeprüft über die nun veröffentlichten Links laufen lassen.
+
+## Verbindliche Produktlogos
+
+Die vier freigegebenen PNG-Master stehen im Studio-Repository unter `assets/branding/`. Dort beschreiben `manifest.json` und `README.md` die verbindlichen Varianten und Prüfsummen. Die Produktseiten verwenden proportionale Ausgaben dieser Master. Der lokale Abgleich erfolgt im Studio-Checkout mit `scripts/sync-brand-exports.py --apps <App-Checkout> --web <Website-Checkout>`.
